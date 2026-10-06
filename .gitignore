@@ -10,3 +10,29 @@ data/
 checkpoints/
 runs/
 
+# Additional experiment outputs and external datasets
+datasets/
+artifacts/
+outputs/
+wandb/
+mlruns/
+tensorboard/
+
+# Model weights, checkpoints, and packaged outputs
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.7z
+
+# Local secrets and credentials
+.env
+.env.*
+!.env.example
+credentials*.json
+secrets*.json

@@ -19,3 +19,13 @@ environment separate from every existing `/sfs/envs/*` project environment.
 - Add small deterministic tests before adding training-scale optimizations.
 - Keep project documentation and the staged roadmap current after changes.
 
+## Experiment logging
+
+- Before starting project work, skim the newest entries under `experiments/`.
+- Append evidence-backed session notes to `experiments/YYYY-MM-DD.md` using
+  Asia/Kolkata timestamps; preserve all earlier entries and mark unknown facts
+  as unknown.
+- Record the Git state, environment, commands, configuration, results,
+  failures, conclusions, and next steps without copying datasets or artifacts.
+- Never commit datasets, samples, checkpoints, weights, archives, credentials,
+  environment folders, or raw training outputs as experiment documentation.
