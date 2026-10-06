@@ -1,0 +1,104 @@
+"""Exercise 5: implement explicit vision self-attention.
+
+Run independently after finishing rope_2d.py:
+    python -m qwen25_scratch.vision_steps.self_attention
+"""
+
+from math import sqrt
+
+import torch
+from torch import nn
+
+from qwen25_scratch.tracing import trace_tensor
+from qwen25_scratch.vision_steps.common import ExerciseIncomplete, print_incomplete
+from qwen25_scratch.vision_steps.config import StudentVisionConfig
+from qwen25_scratch.vision_steps.rope_2d import Axial2DRoPE, apply_2d_rope
+
+
+class VisionSelfAttention(nn.Module):
+    """Non-causal attention: softmax(Q @ K^T / sqrt(d)) @ V."""
+
+    def __init__(self, config: StudentVisionConfig) -> None:
+        super().__init__()
+        self.config = config
+        self.qkv = nn.Linear(config.hidden_size, 3 * config.hidden_size, bias=True)
+        self.output_projection = nn.Linear(config.hidden_size, config.hidden_size)
+        self.rope = Axial2DRoPE(config.head_dim, config.rope_theta)
+        self.scale = 1.0 / sqrt(config.head_dim)
+
+    def forward(
+        self, hidden_states: torch.Tensor, positions: torch.Tensor
+    ) -> tuple[torch.Tensor, torch.Tensor]:
+        """Return output [B,N,D] and probabilities [B,A,N,N].
+
+        Pseudocode:
+          1. qkv projection: [B,N,D] -> [B,N,3D].
+          2. reshape -> [B,N,3,A,d].
+          3. permute -> [3,B,A,N,d], then unbind Q,K,V.
+          4. obtain cos/sin from self.rope; rotate Q and K only.
+          5. scores = Q @ K.transpose(-2,-1) * self.scale.
+          6. softmax scores over the final axis, in float32.
+          7. context = probabilities @ V -> [B,A,N,d].
+          8. transpose -> [B,N,A,d], contiguous, reshape -> [B,N,D].
+          9. output projection -> [B,N,D].
+         10. Return output and probabilities.
+        """
+
+        qkv_projection = self.qkv(hidden_states)
+        qkv_reshaped = qkv_projection.view(
+            hidden_states.size(0), hidden_states.size(1), 3, self.config.num_heads, self.config.head_dim
+        )
+        qkv_permuted = qkv_reshaped.permute(2, 0, 3, 1, 4)  # [3, B, A, N, d]
+        Q, K, V = qkv_permuted.unbind(0)
+
+        cos, sin = self.rope(positions, dtype=Q.dtype)
+        Q_rotated, K_rotated = apply_2d_rope(Q,K, cos, sin)
+
+        scores = torch.matmul(Q_rotated, K_rotated.transpose(-2, -1)) * self.scale
+        probabilities = torch.softmax(scores, dim=-1, dtype=torch.float32)
+        # Keep softmax stable in fp32, then match V for fp16/bf16 matmul.
+        probabilities = probabilities.to(dtype=V.dtype)
+        context = torch.matmul(probabilities, V)
+        context_transposed = context.permute(0, 2, 1, 3).contiguous()
+        context_reshaped = context_transposed.view(hidden_states.size(0), hidden_states.size(1), self.config.hidden_size)
+        output = self.output_projection(context_reshaped)
+        return output, probabilities
+
+
+        raise ExerciseIncomplete("Implement VisionSelfAttention.forward")
+
+
+def demo() -> None:
+    torch.manual_seed(7)
+    config = StudentVisionConfig()
+    # Six fake patch tokens on a 2x3 grid. This module does not need patching.
+    hidden_states = torch.randn(1, 6, config.hidden_size)
+    positions = torch.tensor(
+        [[0, 0], [0, 1], [0, 2], [1, 0], [1, 1], [1, 2]],
+        dtype=torch.long,
+    )
+    print("EXERCISE 5 — VISION SELF-ATTENTION")
+    print("small debug input: B=1, N=6, D=64, A=4, d=16")
+    print("expected probabilities: [1,4,6,6]")
+    trace_tensor("hidden states [B,N,D]", hidden_states)
+    print("positions [N,2]:")
+    print(positions)
+
+    try:
+        output, probabilities = VisionSelfAttention(config)(hidden_states, positions)
+    except ExerciseIncomplete as error:
+        print_incomplete(error, "vision_steps/self_attention.py (and finish rope_2d.py first)")
+        return
+
+    assert output.shape == (1, 6, 64)
+    assert probabilities.shape == (1, 4, 6, 6)
+    torch.testing.assert_close(
+        probabilities.sum(dim=-1), torch.ones(1, 4, 6), rtol=1e-5, atol=1e-6
+    )
+    trace_tensor("attention probabilities [B,A,N,N]", probabilities)
+    trace_tensor("attention output [B,N,D]", output)
+    print("PASS: output shape and probability row sums are correct.")
+
+
+if __name__ == "__main__":
+    demo()

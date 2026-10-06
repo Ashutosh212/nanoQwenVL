@@ -1,0 +1,25 @@
+#!/usr/bin/env python
+"""Print the small Qwen-style language-model exercises in learning order."""
+
+EXERCISES = (
+    (
+        "1. Token embedding lookup",
+        "qwen25_scratch.language_steps.token_embedding",
+    ),
+    (
+        "2. Causal attention mask",
+        "qwen25_scratch.language_steps.causal_mask",
+    ),
+)
+
+
+def main() -> None:
+    print("Small Qwen-style language-model exercises\n")
+    for title, module in EXERCISES:
+        print(title)
+        print(f"  python -m {module}")
+    print("\nComplete the exercises in order. Text RoPE comes next.")
+
+
+if __name__ == "__main__":
+    main()

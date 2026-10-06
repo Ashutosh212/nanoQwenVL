@@ -1,0 +1,26 @@
+#!/usr/bin/env python
+"""Print the independent vision exercise commands in learning order."""
+
+EXERCISES = (
+    ("1. Manual patch embedding", "patch_embedding"),
+    ("2. Spatial position IDs", "spatial_positions"),
+    ("3. RMSNorm", "rms_norm"),
+    ("4. Axial 2D RoPE", "rope_2d"),
+    ("5. Vision self-attention", "self_attention"),
+    ("6. SwiGLU", "swiglu"),
+    ("7. Complete vision block", "vision_block"),
+    ("8. Full vision transformer", "vision_transformer"),
+)
+
+
+def main() -> None:
+    print("Independent Qwen2.5-VL vision exercises\n")
+    for title, module in EXERCISES:
+        print(title)
+        print(f"  python -m qwen25_scratch.vision_steps.{module}")
+    print("\nComplete and inspect one module at a time.")
+    print("Steps 7 and 8 import and assemble the completed exercises.")
+
+
+if __name__ == "__main__":
+    main()

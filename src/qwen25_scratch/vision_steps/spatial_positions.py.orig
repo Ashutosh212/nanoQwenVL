@@ -1,0 +1,64 @@
+"""Exercise 2: create explicit (height, width) IDs for patch tokens.
+
+Run independently:
+    python -m qwen25_scratch.vision_steps.spatial_positions
+"""
+
+import torch
+from torch import nn
+
+from qwen25_scratch.vision_steps.common import ExerciseIncomplete, print_incomplete
+
+
+class SpatialPositionIds(nn.Module):
+    def forward(
+        self, grid_height: int, grid_width: int, device: torch.device
+    ) -> torch.Tensor:
+        """Return row-major [N,2] integer coordinates.
+
+        Pseudocode:
+          1. rows = [0,...,Gh-1], columns = [0,...,Gw-1].
+          2. Use rows[:,None] and expand to construct [Gh,Gw].
+          3. Use columns[None,:] and expand to construct [Gh,Gw].
+          4. stack -> [Gh,Gw,2].
+          5. reshape -> [Gh*Gw,2].
+        """
+        
+        rows = torch.arange(grid_height)
+        columns = torch.arange(grid_width)
+
+        rows_grid = rows[:, None].expand(grid_height, grid_width)
+        col_grid = columns[None, :].expand(grid_height, grid_width)
+
+        positions = torch.stack((rows_grid, col_grid), dim=-1)
+        positions = positions.reshape(grid_height * grid_width, 2)
+        return positions
+        
+        raise ExerciseIncomplete("Implement SpatialPositionIds.forward")
+
+
+def demo() -> None:
+    # A tiny grid is intentional: every coordinate fits on screen.
+    grid_height, grid_width = 3, 5
+    print("EXERCISE 2 — SPATIAL POSITION IDS")
+    print(f"input grid: Gh={grid_height}, Gw={grid_width}")
+    print("expected first row: [[0,0],[0,1],[0,2],[0,3],[0,4]]")
+    try:
+        positions = SpatialPositionIds()(grid_height, grid_width, torch.device("cpu"))
+    except ExerciseIncomplete as error:
+        print_incomplete(error, "vision_steps/spatial_positions.py")
+        return
+
+    assert positions.shape == (15, 2)
+    assert positions.dtype == torch.long
+    assert positions.tolist()[:6] == [
+        [0, 0], [0, 1], [0, 2], [0, 3], [0, 4], [1, 0]
+    ]
+    assert positions[-1].tolist() == [2, 4]
+    print("positions [N,2]:")
+    print(positions)
+    print("PASS: spatial coordinates are row-major and complete.")
+
+
+if __name__ == "__main__":
+    demo()

@@ -1,0 +1,35 @@
+from __future__ import annotations
+
+import torch
+
+from qwen25_scratch.merger_steps.config import StudentMergerConfig
+from qwen25_scratch.merger_steps.merger_projection import make_demo_grouped_tokens
+from qwen25_scratch.merger_steps.spatial_merge import make_demo_tokens
+from qwen25_scratch.merger_steps.vision_language_merger import make_demo_image
+
+
+def test_merger_exercise_dimensions_and_demo_inputs() -> None:
+    config = StudentMergerConfig()
+    assert config.grouped_hidden_size == 256
+
+    tokens, grid_size = make_demo_tokens()
+    assert tokens.shape == (1, 24, 2)
+    assert grid_size == (4, 6)
+    torch.testing.assert_close(
+        tokens[0, :, 0],
+        torch.arange(24, dtype=torch.float32),
+    )
+
+    grouped_tokens = make_demo_grouped_tokens()
+    assert grouped_tokens.shape == (1, 3, config.grouped_hidden_size)
+    torch.testing.assert_close(
+        grouped_tokens[0, 0, 0],
+        torch.tensor(-1.0),
+    )
+    torch.testing.assert_close(
+        grouped_tokens[0, -1, -1],
+        torch.tensor(1.0),
+    )
+
+    image = make_demo_image()
+    assert image.shape == (1, 3, 56, 56)
