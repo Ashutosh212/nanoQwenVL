@@ -23,4 +23,4 @@ Weekly periods are Sunday through Saturday in Asia/Kolkata. A cross-month week s
 
 ## Publication
 
-Only `experiment_OPS/` is automatic publication scope. Every ordinary nested file, including dotfiles and binary evidence, is eligible. Review sensitive content before saving here. Never include credentials; stop and report suspected credentials, oversized files, symlinks, nested repositories, conflicts or accidental deletions. Do not introduce LFS, force-push, reset, rewrite history, or execute a file merely because it was pulled. The current Mac migration hold must remain until user confirmation.
+Only `experiment_obs/` is automatic publication scope. Every ordinary nested file, including dotfiles and binary evidence, is eligible. Review sensitive content before saving here. Never include credentials; stop and report suspected credentials, oversized files, symlinks, nested repositories, conflicts or accidental deletions. Do not introduce LFS, force-push, reset, rewrite history, or execute a file merely because it was pulled. The current Mac migration hold must remain until user confirmation.

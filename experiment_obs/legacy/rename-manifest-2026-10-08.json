@@ -1,0 +1,143 @@
+{
+  "source_commit": "6ccf47e7808cc35144d65116dd98749837b84e01",
+  "old_root": "experiment_OPS",
+  "new_root": "experiment_obs",
+  "note": "Earlier migration manifests retain their original paths as historical provenance; this map supplies the final location.",
+  "files": [
+    {
+      "source": "experiment_OPS/2026/2026-10/plan.md",
+      "destination": "experiment_obs/2026/2026-10/plan.md",
+      "source_sha256": "a864d8b414fff035a8e76ac2ea014f7368370ea952b5d7c6c7a13254bf87efc4"
+    },
+    {
+      "source": "experiment_OPS/2026/2026-10/review.md",
+      "destination": "experiment_obs/2026/2026-10/review.md",
+      "source_sha256": "3cbf2d68a6ded79c64a60823c0583b6fc609bcf50eb372e963b169978d5c467d"
+    },
+    {
+      "source": "experiment_OPS/2026/2026-10/state.md",
+      "destination": "experiment_obs/2026/2026-10/state.md",
+      "source_sha256": "241ceada3c1b9239a943962a9d1f2a1338015a91a17bedee7187da557dd77604"
+    },
+    {
+      "source": "experiment_OPS/2026/2026-10/week-2026-10-04/daily/2026-10-06.md",
+      "destination": "experiment_obs/2026/2026-10/week-2026-10-04/daily/2026-10-06.md",
+      "source_sha256": "7e8f621ad07037d8e69de7a209e35ae95eda0534a1226abeb6afb1cd9b086594"
+    },
+    {
+      "source": "experiment_OPS/2026/2026-10/week-2026-10-04/daily/2026-10-07.md",
+      "destination": "experiment_obs/2026/2026-10/week-2026-10-04/daily/2026-10-07.md",
+      "source_sha256": "b7121c49bcd294218fe9da885701942145c334e0e090d36a7afec29e487519fb"
+    },
+    {
+      "source": "experiment_OPS/2026/2026-10/week-2026-10-04/daily/2026-10-08.md",
+      "destination": "experiment_obs/2026/2026-10/week-2026-10-04/daily/2026-10-08.md",
+      "source_sha256": "0a61b4a941a2a67af735eddbd945c3f6932de852e3baffa3d776e2e464d255e7"
+    },
+    {
+      "source": "experiment_OPS/2026/2026-10/week-2026-10-04/experiments/README.md",
+      "destination": "experiment_obs/2026/2026-10/week-2026-10-04/experiments/README.md",
+      "source_sha256": "ac5a0e465443c448343d849b329ead41801b6cd6261d4f94e503fdd6bf1376e3"
+    },
+    {
+      "source": "experiment_OPS/2026/2026-10/week-2026-10-04/plan.md",
+      "destination": "experiment_obs/2026/2026-10/week-2026-10-04/plan.md",
+      "source_sha256": "2de34b9283ac769db2da0bb215e11f77eb687f7ba00743f0de14e4b7a045e502"
+    },
+    {
+      "source": "experiment_OPS/2026/2026-10/week-2026-10-04/review.md",
+      "destination": "experiment_obs/2026/2026-10/week-2026-10-04/review.md",
+      "source_sha256": "7674442725549c4850ee78031fa8330c8b0e2036ecf551a4835742e74cd1dd1e"
+    },
+    {
+      "source": "experiment_OPS/2026/2026-10/week-2026-10-04/state.md",
+      "destination": "experiment_obs/2026/2026-10/week-2026-10-04/state.md",
+      "source_sha256": "e859ff0d622e78013bc362cc6fe67dfe0c279fe6f14be1263600064691b27e0a"
+    },
+    {
+      "source": "experiment_OPS/README.md",
+      "destination": "experiment_obs/README.md",
+      "source_sha256": "3cb7db0a3ff91e65cd2b3d5e700c03716ff553a547ab14683f3f5bf55c24ff5f"
+    },
+    {
+      "source": "experiment_OPS/agent-guide.md",
+      "destination": "experiment_obs/agent-guide.md",
+      "source_sha256": "6690ee8db73f6e1526be8ded8bfb2b4519984c52537a160f566c74f9c0fb06fa"
+    },
+    {
+      "source": "experiment_OPS/knowledge/decisions.md",
+      "destination": "experiment_obs/knowledge/decisions.md",
+      "source_sha256": "317baf114683943d4f92e2409c7a7fb1ffebfa10a0b3fc5dda2ebdefe9ce08cd"
+    },
+    {
+      "source": "experiment_OPS/knowledge/findings.md",
+      "destination": "experiment_obs/knowledge/findings.md",
+      "source_sha256": "5cf3c1cbefc1f43a1a00298fcc1f720e96f2e8b22e206ffe32c45a8b85c74c6c"
+    },
+    {
+      "source": "experiment_OPS/knowledge/ideas.md",
+      "destination": "experiment_obs/knowledge/ideas.md",
+      "source_sha256": "08f9ccd9a7dad117d00e37d61a33529981a2f043e769198a18a7f247e55ba8c2"
+    },
+    {
+      "source": "experiment_OPS/legacy/README.md",
+      "destination": "experiment_obs/legacy/README.md",
+      "source_sha256": "3b86b34e9f91ea58f872c65b0b043c398fdbd1edcf3a11b61f1be9499b0fa818"
+    },
+    {
+      "source": "experiment_OPS/legacy/experiments/test.md",
+      "destination": "experiment_obs/legacy/experiments/test.md",
+      "source_sha256": "ba043e0d87fda335868751b750f1cf741ded5d1bfcc167999181290777a00b70"
+    },
+    {
+      "source": "experiment_OPS/legacy/migration-manifest.json",
+      "destination": "experiment_obs/legacy/migration-manifest.json",
+      "source_sha256": "6d3e24d7314c892b1f75bf09248e7295994653ba37a3b54ca60aa8aa6b9756bb"
+    },
+    {
+      "source": "experiment_OPS/legacy/migration-report-2026-10-08.md",
+      "destination": "experiment_obs/legacy/migration-report-2026-10-08.md",
+      "source_sha256": "72f724bb966b1f9dfd7ec19eff91e2a5c9801a8c4b99ab1cda647f7dd5cbdd51"
+    },
+    {
+      "source": "experiment_OPS/legacy/migration-request-2026-10-08.txt",
+      "destination": "experiment_obs/legacy/migration-request-2026-10-08.txt",
+      "source_sha256": "a965a41355aa0d36c3bc28b35eb3093f8b4199249e551132c5994006352828fc"
+    },
+    {
+      "source": "experiment_OPS/mac-handoff.md",
+      "destination": "experiment_obs/mac-handoff.md",
+      "source_sha256": "f0fbd777ddfe643953b0544235971cd8f0010a6bd26180baa323e2e39c64cd18"
+    },
+    {
+      "source": "experiment_OPS/plan.md",
+      "destination": "experiment_obs/plan.md",
+      "source_sha256": "851b4105ba358c469dabac5c7a79e8eb83284726e121f2b52f8263e30370d365"
+    },
+    {
+      "source": "experiment_OPS/state.md",
+      "destination": "experiment_obs/state.md",
+      "source_sha256": "99832665e4729438692e6f8ea50a7a7a23d20da0f8efccc4519e60e14326abc6"
+    },
+    {
+      "source": "experiment_OPS/templates/daily.md",
+      "destination": "experiment_obs/templates/daily.md",
+      "source_sha256": "5d16fbfe4c3432335810c5c04539d496b614366fc559a03a2402cadd4572e29a"
+    },
+    {
+      "source": "experiment_OPS/templates/experiment.md",
+      "destination": "experiment_obs/templates/experiment.md",
+      "source_sha256": "8c41099eec000eb29e6ce4ab8a046083bbbaadb8be21bacae116033b29afa89e"
+    },
+    {
+      "source": "experiment_OPS/templates/monthly-review.md",
+      "destination": "experiment_obs/templates/monthly-review.md",
+      "source_sha256": "c5866671a00813910429ce0c7f15a42d6cc82dad165dc33a16bc1794d6adf89e"
+    },
+    {
+      "source": "experiment_OPS/templates/weekly-review.md",
+      "destination": "experiment_obs/templates/weekly-review.md",
+      "source_sha256": "6e6e0000b6fbf2b42c8442a1ac86b3775622f8734c5a779322ec652dbc5a2088"
+    }
+  ]
+}

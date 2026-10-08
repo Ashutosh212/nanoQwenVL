@@ -1,6 +1,6 @@
 # Research notebook — Ashutosh212/nanoQwenVL
 
-This is the current notebook root: `experiment_OPS/`. Start with [agent guide](agent-guide.md), [plan](plan.md), [state](state.md), and [findings](knowledge/findings.md).
+This is the current notebook root: `experiment_obs/`. Start with [agent guide](agent-guide.md), [plan](plan.md), [state](state.md), and [findings](knowledge/findings.md).
 
 - GitHub: https://github.com/Ashutosh212/nanoQwenVL; branch: `main`.
 - Commit identity: Ashutosh212 <98666503+Ashutosh212@users.noreply.github.com>. Authentication is separate for each project.
@@ -16,7 +16,7 @@ This is the current notebook root: `experiment_OPS/`. Start with [agent guide](a
 Dates use Asia/Kolkata. A week is Sunday 00:00 through Saturday 23:59:59, named for the starting Sunday and kept under that Sunday's month, even across year boundaries. Monthly reviews attribute work by the actual work date and link overlapping weeks in neighboring months; never duplicate the underlying daily or experiment record.
 
 ```text
-experiment_OPS/
+experiment_obs/
   README.md, agent-guide.md, plan.md, state.md
   knowledge/{findings,decisions,ideas}.md
   templates/{experiment,daily,weekly-review,monthly-review}.md
