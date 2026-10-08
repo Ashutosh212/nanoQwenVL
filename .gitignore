@@ -36,3 +36,8 @@ tensorboard/
 !.env.example
 credentials*.json
 secrets*.json
+
+# Intentional notebook attachments of any type are eligible inside this boundary.
+# Credentials are blocked by the sync scanner, not silently hidden by ignores.
+!/experiment_OPS/
+!/experiment_OPS/**

@@ -1,0 +1,31 @@
+{
+  "migration_date_Asia_Kolkata": "2026-10-08",
+  "source_commit": "09b4a03804161961bf2a733ca977236759e3617b",
+  "note": "Historical file bytes preserved; old inline paths describe the setup at the time. See current README for new paths.",
+  "files": [
+    {
+      "source": "experiments/2026-10-08.md",
+      "destination": "experiment_OPS/2026/2026-10/week-2026-10-04/daily/2026-10-08.md",
+      "sha256": "0a61b4a941a2a67af735eddbd945c3f6932de852e3baffa3d776e2e464d255e7",
+      "bytes": 1468
+    },
+    {
+      "source": "experiments/2026-10-07.md",
+      "destination": "experiment_OPS/2026/2026-10/week-2026-10-04/daily/2026-10-07.md",
+      "sha256": "b7121c49bcd294218fe9da885701942145c334e0e090d36a7afec29e487519fb",
+      "bytes": 6412
+    },
+    {
+      "source": "experiments/2026-10-06.md",
+      "destination": "experiment_OPS/2026/2026-10/week-2026-10-04/daily/2026-10-06.md",
+      "sha256": "7e8f621ad07037d8e69de7a209e35ae95eda0534a1226abeb6afb1cd9b086594",
+      "bytes": 5940
+    },
+    {
+      "source": "experiments/test.md",
+      "destination": "experiment_OPS/legacy/experiments/test.md",
+      "sha256": "ba043e0d87fda335868751b750f1cf741ded5d1bfcc167999181290777a00b70",
+      "bytes": 28
+    }
+  ]
+}

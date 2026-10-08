@@ -1,0 +1,173 @@
+Update my research notebook hierarchy and synchronization workflow.
+
+PROJECTS
+
+Personal:
+- Server repository: /sfs/qwen2.5
+- GitHub: https://github.com/Ashutosh212/nanoQwenVL
+- Branch: main
+- Commit identity:
+  Ashutosh212
+  98666503+Ashutosh212@users.noreply.github.com
+
+Company:
+- Server repository: /sfs/end_to_end
+- GitHub: https://github.com/auric007/orchestration
+- Branch: main
+- Commit identity:
+  Ashutosh Bharti
+  ashutosh.bharti@auricai.in
+- Existing service: orchestration-experiment-sync
+
+Preserve separate personal and company authentication.
+Never display or commit credentials.
+
+IMPORTANT CHANGE TO THE PREVIOUS DESIGN
+
+The final directory name is exactly:
+
+experiment_OPS/
+
+Synchronize all ordinary files recursively inside that directory.
+
+Do not restrict synchronization to Markdown, direct-child files, specific
+extensions, or filename patterns. Include nested files, binary files,
+images, CSV, JSON, YAML, PDFs, and intentional dotfiles.
+
+Do not introduce sparse checkout on the server.
+The Mac will also use a normal full checkout after its separate update.
+
+The automation must still enforce the directory boundary:
+only experiment_OPS/ content may be automatically committed and pushed.
+Research files elsewhere in the repository must remain outside automatic
+publication.
+
+PREPARATION
+
+1. Read applicable project instructions and inspect the actual Git state,
+   services, scripts, remotes, and ignore rules.
+2. Pause the server sync services.
+3. Inspect whether experiments/, experiment_obs/, or experiment_OPS/
+   currently exists. Do not assume the previous migration was performed.
+4. Preserve all existing work and configurations.
+5. Stop on conflicting destination files or unrelated outgoing commits.
+   Never overwrite, reset, force-push, or rewrite history.
+
+HIERARCHY
+
+experiment_OPS/
+  README.md
+  agent-guide.md
+  plan.md
+  state.md
+  knowledge/
+    findings.md
+    decisions.md
+    ideas.md
+  templates/
+    experiment.md
+    daily.md
+    weekly-review.md
+    monthly-review.md
+  YYYY/
+    YYYY-MM/
+      plan.md
+      state.md
+      review.md
+      week-YYYY-MM-DD/
+        plan.md
+        state.md
+        review.md
+        daily/
+          YYYY-MM-DD.md
+        experiments/
+          EXP-YYYY-MM-DD-NN-description/
+            record.md
+            [supporting files and subfolders as needed]
+
+Create experiment directories only for actual experiments.
+Create future months and weeks as needed, not in bulk.
+
+Use Asia/Kolkata dates.
+Weeks run Sunday 00:00 through Saturday 23:59:59.
+Name each week using its starting Sunday's date.
+Store the whole week under the month containing that Sunday.
+Monthly reviews must account for work in overlapping weeks.
+
+MIGRATION
+
+Preserve existing content and provenance.
+Move dated daily notes into the appropriate weekly daily directory.
+Organize identifiable experiment records appropriately.
+Preserve uncertain historical content under experiment_OPS/legacy/.
+Update affected links.
+Do not fabricate results, conclusions, dates, or historical experiments.
+
+Git does not track empty directories. Add a useful README where an empty
+directory needs to appear, rather than assuming Git will preserve it.
+
+SYNC CHANGES
+
+- Replace direct-child Markdown discovery with recursive file discovery
+  beneath experiment_OPS/.
+- Remove Markdown-only, UTF-8-only, and direct-child restrictions.
+- Remove the previous blanket 1 MiB note-size limit.
+- Inspect repository ignore rules, local exclusions, and global exclusions
+  for rules that would unintentionally omit intended experiment_OPS content.
+  Adjust narrowly; preserve protections elsewhere in the project.
+- Retain credential/publication checks. If a credential or unsupported
+  oversized file is detected, stop and report it rather than silently
+  publishing or skipping it.
+- Respect GitHub's file-size limitations. Do not introduce Git LFS or
+  external storage automatically.
+- Never traverse symlinks outside the directory or ingest nested Git
+  repositories as ordinary folders; report those cases for review.
+- Continue using explicit reviewed staging paths.
+- Inspect every outgoing commit, including intermediate changes.
+- Publish the exact reviewed commit, protecting against concurrent edits.
+- Preserve existing manual staged and unstaged work.
+- Stop on conflicts, diverged history, or unrelated outgoing changes.
+- Retain the existing safe deletion policy; handle migration renames and
+  deletions through a separately reviewed manual migration commit.
+- Keep the existing one-minute server schedule and no editing-idle wait.
+
+RESEARCH AGENT INSTRUCTIONS
+
+Make agent-guide.md explain how to read:
+- Project state and long-term plan.
+- Accumulated findings and decisions.
+- Current monthly plan and previous monthly review.
+- Current weekly plan and previous weekly review.
+- Original experiment evidence relevant to the next proposed work.
+
+Record original prompts, actual changes, commands, configuration, Git
+state, results, failures, artifact locations, and next steps.
+
+Link conclusions to evidence. Mark missing evidence as unknown.
+Preserve superseded findings and explain why decisions changed.
+
+Saving or syncing a file never authorizes experiment execution.
+Do not install autonomous experiment execution or LLM scheduling.
+
+PUBLICATION AND VALIDATION
+
+Review the complete migration and outgoing history.
+Manually commit and push the approved migration to main.
+Do not bundle unrelated research code or permanently allow the old
+directory names in normal automatic publication.
+
+Test:
+- Nested text and binary files.
+- Direct-child files and intended dotfiles.
+- Ignore-rule behavior.
+- Credential and size failures.
+- Symlink/path escapes and nested repositories.
+- Conflicts and concurrent edits.
+- Preservation of unrelated/staged work.
+- Week/month/year boundaries in Asia/Kolkata.
+
+Leave server sync PAUSED after publication until I confirm the Mac has
+been updated.
+
+Return the migration commit SHAs, resulting hierarchy, tests, unresolved
+issues, exact resume commands, and Mac compatibility requirements.
