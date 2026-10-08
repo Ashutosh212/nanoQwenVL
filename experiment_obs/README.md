@@ -33,6 +33,16 @@ Create only the current/needed periods. Create an EXP directory only for an actu
 
 ## Migration and sync state
 
-Server synchronization is deliberately PAUSED until the Mac has a full checkout and the new recursive OPS engine. Old notes are preserved with [source paths, hashes and revisions](legacy/migration-manifest.json); uncertain notes stay in [legacy](legacy/README.md). Historical commands/paths in old notes describe that past setup, not current instructions.
+As observed during 2026-10-08 logging setup, server synchronization is deliberately PAUSED. The Mac intentionally keeps directory-only non-cone sparse checkout of `/experiment_obs/` recursively, all ordinary files/dotfiles, not full checkout. The user's latest Mac report had both schedules paused and push credentials unavailable; no end-to-end success is asserted. Resume needs separate confirmation. Old notes are preserved with [source paths, hashes and revisions](legacy/migration-manifest.json); uncertain notes stay in [legacy](legacy/README.md). Historical commands/paths describe that past setup, not current instructions.
 
 Server launcher: `bash /sfs/markdown-sync/sync.sh status`. The morning start command does not bypass the Mac-migration hold. See [Mac handoff](mac-handoff.md) for the required coordinated update. No provider boot hook or autonomous experiment runner is installed.
+
+## Automatic session documentation
+
+Configured server agents read the shared policy in `/sfs/research-notebook/` and
+this notebook's [agent guide](agent-guide.md). Substantive requests get concise
+timestamped intent/action/outcome entries in the day's weekly daily file, reusing
+task IDs for follow-ups. Historical notes remain intact. No save reminder is needed;
+read-only requests are respected. This is agent-session guidance, not a background
+observer, experiment executor or proof of GitHub delivery. Fresh-session verification
+status is recorded in the setup entry and server-local setup report.

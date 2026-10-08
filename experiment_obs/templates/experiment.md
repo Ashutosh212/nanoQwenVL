@@ -1,10 +1,13 @@
 # EXP-YYYY-MM-DD-NN-description
 
-Status: proposed / running / completed / failed / unknown (choose accurately).
+Status: running / completed / failed / unknown (choose accurately).
+Planning-only proposals stay in ideas/plan, not an EXP directory. Task/correlation ID:
+record when known. Actual work dates: distinct from original folder/creation date.
 
-## Original request and authorization
+## Brief request summary and authorization
 
-Original prompt (verbatim), source and Asia/Kolkata time: unknown until recorded.
+Concise intent, meaningful corrections, source and Asia/Kolkata time: record observed facts.
+Only preserve exact safe commands/quotes when essential evidence; no full prompt required.
 Execution approval: record the actual approval; a saved file alone is not approval.
 
 ## Question and evidence
@@ -22,6 +25,8 @@ Exact commands actually executed, working directory, runtime versions, start/end
 ## Results and failures
 
 Observed metrics, units and denominators; comparison table when useful. Link raw supporting evidence. Mark unavailable results unknown. Include errors and unsuccessful attempts.
+
+Failure cause: observed / supported inference / unknown, with evidence and limitations.
 
 ## Artifacts
 
