@@ -1,5 +1,12 @@
 # Project state
 
+## Current transport update — 2026-10-14 01:20 IST
+
+User confirmed Mac readiness and approved resume. The server service is running
+with `--interval 30` and a fresh successful cycle. Older pause/auth observations
+below describe October 8, not current transport. Research status is unchanged by
+this setup; [current infrastructure evidence](2026/2026-10/week-2026-10-11/daily/2026-10-14.md).
+
 As of notebook preparation on 2026-10-08, Asia/Kolkata:
 
 - Existing notes migrated without inventing research results; [manifest](legacy/migration-manifest.json).

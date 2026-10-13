@@ -33,7 +33,7 @@ Create only the current/needed periods. Create an EXP directory only for an actu
 
 ## Migration and sync state
 
-As observed during 2026-10-08 logging setup, server synchronization is deliberately PAUSED. The Mac intentionally keeps directory-only non-cone sparse checkout of `/experiment_obs/` recursively, all ordinary files/dotfiles, not full checkout. The user's latest Mac report had both schedules paused and push credentials unavailable; no end-to-end success is asserted. Resume needs separate confirmation. Old notes are preserved with [source paths, hashes and revisions](legacy/migration-manifest.json); uncertain notes stay in [legacy](legacy/README.md). Historical commands/paths describe that past setup, not current instructions.
+On 2026-10-14 the user confirmed Mac readiness and approved resume. This server service was started with a 30-second wait after each cycle, and a fresh cycle reported success. This supersedes the October 8 pause; inspect current status for ongoing health. Mac keeps directory-only non-cone sparse checkout of `/experiment_obs/`, all ordinary files/dotfiles, not full checkout. Mac-side execution was not independently observed. Old notes are preserved with [source paths, hashes and revisions](legacy/migration-manifest.json); uncertain notes stay in [legacy](legacy/README.md).
 
 Server launcher: `bash /sfs/markdown-sync/sync.sh status`. The morning start command does not bypass the Mac-migration hold. See [Mac handoff](mac-handoff.md) for the required coordinated update. No provider boot hook or autonomous experiment runner is installed.
 

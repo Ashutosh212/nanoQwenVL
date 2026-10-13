@@ -15,4 +15,9 @@ bash /sfs/end_to_end/scripts/experiment_sync_service.sh resume --mac-updated
 bash /sfs/markdown-sync/sync.sh status
 ```
 
-Normal subsequent server starts: `bash /sfs/markdown-sync/sync.sh`. Both services retain the 60-second wait after each cycle with no editing-idle delay. Running these resume commands is the explicit acknowledgement that the Mac side has been updated; do not run them early. A genuine conflict still requires manual resolution.
+Update 2026-10-14: the user confirmed Mac readiness and explicitly approved resume.
+Server services are now configured with a 30-second wait after each cycle, with no
+editing-idle delay. Normal starts: `bash /sfs/markdown-sync/sync.sh`; status: append
+`status`. The launcher now includes the two explicitly enrolled stage notebooks.
+This does not change the Mac schedule or verify a Mac process. A genuine conflict
+still stops synchronization for manual resolution; do not bypass any future hold.
