@@ -2,6 +2,12 @@
 
 Coverage Sunday October 4 through Saturday October 10, Asia/Kolkata. This review is incomplete.
 
+Closed-period review compiled 2026-10-14 from available entries: notebook migration
+and agent-guidance work were recorded; the intended resumed Mac/server round trip
+was not established by October 10. No additional October 9–10 evidence was present.
+Coverage remains incomplete and unobserved research activity is unknown. The new
+October 14 readiness confirmation belongs to the next week, not this week's results.
+
 2026-10-08 infrastructure update: [session-documentation setup](daily/2026-10-08.md)
 adds summary-first automatic agent guidance and tested routing/append behavior.
 Planned fresh-agent logging verification remains incomplete: Codex sandbox and

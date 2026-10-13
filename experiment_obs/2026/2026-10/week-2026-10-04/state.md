@@ -8,3 +8,7 @@ by sandbox startup; Claude runtime verification by expired OAuth. No research ru
 See [setup evidence](daily/2026-10-08.md). Next: verify a fresh agent with working
 filesystem/authentication; no service resume authorized. Mac keeps notebook-only
 directory sparse checkout; current end-to-end transport remains unverified.
+
+2026-10-08 20:23 IST: status rechecked; service still held. TIR start-script advice
+recorded in [today's entry](daily/2026-10-08.md); no boot hook or resume configured.
+Manual start and a future boot hook both honor the existing hold.
